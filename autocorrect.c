@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct trie* trie_t;
+typedef struct trie *trie_t;
 
 struct trie_node {
 	char character;
