@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct trie {
-	trie_node** head;
-};
-
 typedef struct trie* trie_t;
 
 struct trie_node {
 	char character;
 	trie_node** next;
+};
+
+struct trie {
+	trie_node** head;
 };
 
 trie_t create_trie();
