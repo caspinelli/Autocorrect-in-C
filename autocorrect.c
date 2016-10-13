@@ -6,11 +6,11 @@ typedef struct trie* trie_t;
 
 struct trie_node {
 	char character;
-	trie_node** next;
+	struct trie_node** next;
 };
 
 struct trie {
-	trie_node** head;
+	struct trie_node** head;
 };
 
 trie_t create_trie();
