@@ -22,9 +22,9 @@ main() {
 
 
 trie_t create_trie() {
-	trie_t newTrie = mallloc(sizeof(struct trie));
-	//struct trie_node** firstArray = mallloc(sizeof(struct trie_node *) * 26);
-	newTrie->head = NULL;
+	trie_t newTrie = malloc(sizeof(struct trie));
+	struct trie_node** firstArray = malloc(sizeof(struct trie_node *) * 26);
+	newTrie->head = firstArray;
 	return newTrie;
 }
 
