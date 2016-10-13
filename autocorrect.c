@@ -10,7 +10,7 @@ struct trie_node {
 };
 
 struct trie {
-	//struct trie_node** head;
+	struct trie_node** head;
 	char character;
 };
 
