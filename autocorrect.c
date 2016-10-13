@@ -22,7 +22,7 @@ main() {
 
 trie_t create_trie() {
 	trie_t newTrie = mallloc(sizeof(struct trie));
-	struct trie_node** firstArray = mallloc(sizeof(trie_node *));
+	struct trie_node** firstArray = mallloc(sizeof(trie_node *) * 26);
 	newTrie->head = firstArray;
 	return newTrie;
 }
@@ -109,3 +109,4 @@ void* stack_pop(stack_t *s) {
 		}
 	}
 }
+*/
