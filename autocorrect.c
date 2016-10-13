@@ -10,7 +10,8 @@ struct trie_node {
 };
 
 struct trie {
-	struct trie_node** head;
+	//struct trie_node** head;
+	char character;
 };
 
 trie_t create_trie();
@@ -22,8 +23,8 @@ main() {
 
 trie_t create_trie() {
 	trie_t newTrie = mallloc(sizeof(struct trie));
-	struct trie_node** firstArray = mallloc(sizeof(struct trie_node *) * 26);
-	newTrie->head = firstArray;
+	//struct trie_node** firstArray = mallloc(sizeof(struct trie_node *) * 26);
+	newTrie->head = NULL;
 	return newTrie;
 }
 
