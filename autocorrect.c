@@ -3,7 +3,7 @@
 #include <string.h>
 
 struct trie {
-	trie_node** head
+	trie_node** head;
 };
 
 typedef struct trie* trie_t;
@@ -24,7 +24,7 @@ trie_t create_trie() {
 	trie_t newTrie = mallloc(sizeof(struct trie));
 	trie_node** firstArray = mallloc(sizeof(trie_node *));
 	newTrie->head = firstArray;
-	return newTrie
+	return newTrie;
 }
 
 
