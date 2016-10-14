@@ -2,19 +2,19 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+
 typedef struct trie *trie_t;
 
 struct trie_node {
 	char character;
-	struct trie_node** next;
+	int frequency;
+	trie_t next[26];
 };
 
-struct trie {
-	struct trie_node** head;
-	char character;
-};
 
 trie_t create_trie();
+void insert_trie(trie_t* triePointer, char* word);
 
 main() {
 	create_trie();
@@ -22,11 +22,35 @@ main() {
 
 
 trie_t create_trie() {
-	trie_t newTrie = malloc(sizeof(struct trie));
-	struct trie_node** firstArray = malloc(sizeof(struct trie_node *) * 26);
-	newTrie->head = firstArray;
+	trie_t newTrie = malloc(sizeof(struct trie_node));
+	newTrie->character = '/0';
+	newTrie->frequency = 0;
+	for (int i = 0; i < sizeof(newTrie->next)/sizeof(newTrie->next[0]; i++) {
+		printf("%i", i);
+	}
 	return newTrie;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void insert_trie(trie_t* triePointer, char* word) {
+
+
+
+
+}
+
 
 
 /* struct stack: internal structure hidden by opaque pointer in .h file -
