@@ -26,7 +26,7 @@ trie_t create_trie() {
 	newTrie->character = '\0';
 	newTrie->frequency = 0;
 	int i = 0;
-	for (i; i < sizeof(newTrie->next)/sizeof(newTrie->next[0]; i++) {
+	for (i; i < sizeof(newTrie->next)/sizeof(newTrie->next[0]); i++) {
 		printf("%i", i);
 	}
 	return newTrie;
