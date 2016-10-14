@@ -36,7 +36,7 @@ trie_t create_trie() {
 
 void insert_trie(trie_t triePointer, char* word) {
 	char c = word[0];
-	int i = int(c) - 97;
+	int i = (int) c - 97;
 	printf("%i", i);
 }
 
