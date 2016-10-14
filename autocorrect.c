@@ -44,21 +44,6 @@ void insert_trie(trie_t triePointer, char* word) {
 
 
 
-
-
-
-
-
-
-void insert_trie(trie_t* triePointer, char* word) {
-
-
-
-
-}
-
-
-
 /* struct stack: internal structure hidden by opaque pointer in .h file -
 	provides access to the head (starting point) 
 struct stack {
