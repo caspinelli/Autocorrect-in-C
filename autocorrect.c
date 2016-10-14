@@ -4,7 +4,7 @@
 
 
 
-typedef struct trie *trie_t;
+typedef struct trie_node *trie_t;
 
 struct trie_node {
 	char character;
