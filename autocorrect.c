@@ -17,7 +17,7 @@ trie_t create_trie();
 void insert_trie(trie_t triePointer, char* word);
 
 main() {
-	char* stringOne = "cooper";
+	char* stringOne = "hooper";
 	insert_trie(create_trie(), stringOne);
 }
 
