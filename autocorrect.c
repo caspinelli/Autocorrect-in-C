@@ -14,10 +14,10 @@ struct trie_node {
 
 
 trie_t create_trie();
-void insert_trie(trie_t* triePointer, char* word);
+void insert_trie(trie_t triePointer, char* word);
 
 main() {
-	char* stringOne = "cooper"
+	char* stringOne = "cooper";
 	insert_trie(create_trie(), stringOne);
 }
 
@@ -34,7 +34,7 @@ trie_t create_trie() {
 }
 
 
-void insert_trie(trie_t* triePointer, char* word) {
+void insert_trie(trie_t triePointer, char* word) {
 	char c = word[0]
 	int i = int(c) - 97;
 	printf("%i", i);
