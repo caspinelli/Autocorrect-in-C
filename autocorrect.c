@@ -25,7 +25,8 @@ trie_t create_trie() {
 	trie_t newTrie = malloc(sizeof(struct trie_node));
 	newTrie->character = '\0';
 	newTrie->frequency = 0;
-	for (int i = 0; i < sizeof(newTrie->next)/sizeof(newTrie->next[0]; i++) {
+	int i = 0;
+	for (i; i < sizeof(newTrie->next)/sizeof(newTrie->next[0]; i++) {
 		printf("%i", i);
 	}
 	return newTrie;
