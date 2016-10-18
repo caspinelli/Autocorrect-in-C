@@ -42,8 +42,22 @@ void insert_trie(trie_t triePointer, char* word) {
 		int i = (int) c - 97;
 		if (holder->next[i] == NULL) {
 			holder->next[i] = malloc(sizeof(struct trie_node));
+			holder->next[i]->character = word[h];
+			if (word[h+1] = '\0') {
+				holder->next[i]->frequency = 1;
+			} else {
+				holder->next[i]->frequency = 0;
+			}
+			int s = 0;
+			for (s; s < sizeof(holder->next[i]->next)/sizeof(holder->next[i]->next[0]); s++) {
+				holder->next[i]->next[s] = NULL;
+			}
+		} else {
+			if (word[h+1] = '\0') {
+				holder->frequency = 1;
 		}
 		holder = holder->next[i];
+		printf("%c\n", holder->character);
 	}
 	
 }
