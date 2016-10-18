@@ -55,11 +55,11 @@ void insert_trie(trie_t triePointer, char* word) {
 		} else {
 			if (word[h+1] = '\0') {
 				holder->frequency = 1;
+			}
 		}
 		holder = holder->next[i];
 		printf("%c\n", holder->character);
 	}
-	
 }
 
 
