@@ -15,7 +15,7 @@ struct trie_node {
 
 trie_t create_trie();
 void insert_trie(trie_t triePointer, char* word);
-void delete_trie(trie_t triePointer)
+void delete_trie(trie_t triePointer);
 
 main() {
 	char* stringOne = "hooper";
