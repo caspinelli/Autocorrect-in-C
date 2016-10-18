@@ -15,10 +15,13 @@ struct trie_node {
 
 trie_t create_trie();
 void insert_trie(trie_t triePointer, char* word);
+void delete_trie(trie_t triePointer)
 
 main() {
 	char* stringOne = "hooper";
-	insert_trie(create_trie(), stringOne);
+	trie_t trie = create_trie();
+	insert_trie(trie, stringOne);
+	delete_trie(trie);
 }
 
 
@@ -62,6 +65,15 @@ void insert_trie(trie_t triePointer, char* word) {
 	}
 }
 
+void delete_trie(trie_t triePointer) {
+	int i = 0;
+	for (i; i < sizeof(triePointer->next)/sizeof(triePointer->next[0]); i++) {
+		if (triePointer->next[i] != NULL) {
+			delete_trie(triePointer->next[i]);
+		}
+	}
+	free(triePointer);
+}
 
 
 
