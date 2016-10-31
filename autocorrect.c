@@ -37,9 +37,8 @@ trie_t create_trie() {
 }
 
 
-void insert_trie(trie_t triePointer, char* word) {
+void insert_trie(trie_t holder, char* word) {
 	int h = 0;
-	trie_t holder = triePointer;
 	for (h; h < sizeof(word)/sizeof(word[0]); h++) {
 		char c = word[h];
 		int i = (int) c - 97;
