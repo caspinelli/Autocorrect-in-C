@@ -64,6 +64,7 @@ void insert_trie(trie_t holder, char* word) {
 	}
 }
 
+
 void delete_trie(trie_t triePointer) {
 	int i = 0;
 	for (i; i < sizeof(triePointer->next)/sizeof(triePointer->next[0]); i++) {
