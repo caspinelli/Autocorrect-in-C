@@ -19,8 +19,8 @@ void delete_trie(trie_t triePointer);
 
 main() {
 	trie_t testTrie = create_trie();
-	trie_fill(testTrie);
-	//insert_trie(testTrie, "hooper");
+	//trie_fill(testTrie);
+	insert_trie(testTrie, "hooperchamp");
 	delete_trie(testTrie);
 }
 
