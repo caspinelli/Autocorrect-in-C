@@ -42,7 +42,7 @@ void trie_fill(trie_t triePointer) {
 	char line[256];
 	while(fgets(line, sizeof(line), pFile)){
   		char* wordRead = strtok(line, "\n");
-  		printf("%c\n", wordRead);
+  		printf("%s\n", wordRead);
   		insert_trie(triePointer, wordRead);
   	}
 }
