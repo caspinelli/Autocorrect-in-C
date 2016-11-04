@@ -71,9 +71,9 @@ void insert_trie(trie_t holder, char* word) {
 			}
 		}
 		holder = holder->next[i];
-		printf("%c", holder->character);
+		//printf("%c", holder->character);
 	}
-	printf("\n");
+	//printf("\n");
 }
 
 
