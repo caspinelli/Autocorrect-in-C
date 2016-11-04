@@ -37,11 +37,11 @@ trie_t create_trie() {
 
 
 void trie_fill(trie_t triePointer) {
-	pFile = fopen("wordsEn.txt", "r");
+	FILE* pFile = fopen("wordsEn.txt", "r");
 	char line[256];
 	while(fgets(line, sizeof(line), pFile)){
-  		char*  = strtok(line, "\n");
-  		insert_trie(triePointer, tok);
+  		char* wordRead = strtok(line, "\n");
+  		insert_trie(triePointer, wordRead);
   	}
 }
 
