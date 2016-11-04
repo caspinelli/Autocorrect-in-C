@@ -13,13 +13,14 @@ struct trie_node {
 };
 
 trie_t create_trie();
-void trie_fill(trie_t triePointer)
+void trie_fill(trie_t triePointer);
 void insert_trie(trie_t triePointer, char* word);
 void delete_trie(trie_t triePointer);
 
 main() {
 	trie_t testTrie = create_trie();
 	trie_fill(testTrie);
+	delete_trie(testTrie);
 }
 
 
