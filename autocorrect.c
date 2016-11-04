@@ -19,8 +19,8 @@ void delete_trie(trie_t triePointer);
 
 main() {
 	trie_t testTrie = create_trie();
-	//trie_fill(testTrie);
-	insert_trie(testTrie, "cooper");
+	trie_fill(testTrie);
+	//insert_trie(testTrie, "cooper");
 	delete_trie(testTrie);
 }
 
@@ -42,6 +42,7 @@ void trie_fill(trie_t triePointer) {
 	char line[256];
 	while(fgets(line, sizeof(line), pFile)){
   		char* wordRead = strtok(line, "\n");
+  		printf("%c\n", wordRead);
   		insert_trie(triePointer, wordRead);
   	}
 }
