@@ -50,7 +50,7 @@ void trie_fill(trie_t triePointer) {
 
 void insert_trie(trie_t holder, char* word) {
 	int h = 0;
-	for (h; h < strlen(word; h++) {
+	for (h; h < strlen(word); h++) {
 		char c = word[h];
 		int i = (int) c - 97;
 		if (holder->next[i] == NULL) {
