@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+///////////////////////
+// Trie Declarations //
+///////////////////////
 
 typedef struct trie_node* trie_t;
-typedef struct queue_node* priority_t;
 
 struct trie_node {
 	char character;
@@ -17,13 +19,44 @@ void trie_fill(trie_t triePointer);
 void insert_trie(trie_t triePointer, char* word);
 void delete_trie(trie_t triePointer);
 
+trie_t follow_word(trie_t triePointer, char* wordGiven);
+
+
+////////////////////////
+// Stack Declarations //
+////////////////////////
+
+typedef struct linked* linked_t;
+
+struct linked {
+	struct linked_node* head;
+};
+
+struct linked_node {
+	trie_t item;
+	struct linked_node* next;
+};
+
+linked_t linked_create(); // creates linked list -- returns pointer to a struct linked, allocates space for the head
+void linked_destroy(linked_t s); // destroys linkedlist
+void linked_append(linked_t s, trie_t item); // adds node to end of linked
+void* linked_pop(linked_t s); // returns first item in the linked and removes it
+
+
+//////////
+// Main //
+//////////
+
 main() {
 	trie_t testTrie = create_trie();
 	trie_fill(testTrie);
-	//insert_trie(testTrie, "hooperchamp");
 	delete_trie(testTrie);
 }
 
+
+////////////////////
+// Trie Functions //
+////////////////////
 
 trie_t create_trie() {
 	trie_t newTrie = malloc(sizeof(struct trie_node));
@@ -48,30 +81,30 @@ void trie_fill(trie_t triePointer) {
 }
 
 
-void insert_trie(trie_t holder, char* word) {
+void insert_trie(trie_t triePointer, char* word) {
 	int h = 0;
 	for (h; h < strlen(word); h++) {
 		char c = word[h];
 		int i = (int) c - 97;
-		if (holder->next[i] == NULL) {
-			holder->next[i] = malloc(sizeof(struct trie_node));
-			holder->next[i]->character = word[h];
+		if (triePointer->next[i] == NULL) {
+			triePointer->next[i] = malloc(sizeof(struct trie_node));
+			triePointer->next[i]->character = word[h];
 			if (word[h+1] == '\0') {
-				holder->next[i]->frequency = 1;
+				triePointer->next[i]->frequency = 1;
 			} else {
-				holder->next[i]->frequency = 0;
+				triePointer->next[i]->frequency = 0;
 			}
 			int s = 0;
-			for (s; s < sizeof(holder->next[i]->next)/sizeof(holder->next[i]->next[0]); s++) {
-				holder->next[i]->next[s] = NULL;
+			for (s; s < sizeof(triePointer->next[i]->next)/sizeof(triePointer->next[i]->next[0]); s++) {
+				triePointer->next[i]->next[s] = NULL;
 			}
 		} else {
 			if (word[h+1] == '\0') {
-				holder->frequency = 1;
+				triePointer->frequency = 1;
 			}
 		}
-		holder = holder->next[i];
-		printf("%c", holder->character);
+		triePointer = triePointer->next[i];
+		printf("%c", triePointer->character);
 	}
 	printf("\n");
 }
@@ -88,3 +121,69 @@ void delete_trie(trie_t triePointer) {
 }
 
 
+trie_t follow_word(trie_t triePointer, char* wordGiven) {
+	int h = 0;
+	for (h; h < strlen(wordGiven); h++) {
+		char c = wordGiven[h];
+		int i = (int) c - 97;
+		if (triePointer->next[i] == NULL) {
+			return NULL;
+		} else {
+			triePointer = triePointer->next[i];
+		}
+	}
+	return triePointer;
+}
+
+
+//////////////////////
+// Linked Functions //
+//////////////////////
+
+linked_t linked_create() {
+	linked newLinked = malloc(sizeof(struct linked)); // newLinked is a pointer to memory that is the size of a linked
+	newLinked->head = NULL; // follow the pointer and make the head of the linked NULL
+	return newLinked; // return the pointer to the linked
+}
+
+
+void linked_destroy(linked_t s) {
+	struct linked_node* curr = s->head;
+	while(curr != NULL) {
+		struct linked_node* temp = curr->next;
+		free(curr);
+		free(curr->item);
+		curr = temp;
+	}
+	free(s);
+	(s) = NULL;
+}
+
+
+void linked_append(linked_t s, trie_t item) {
+	struct linked_node* new_node = malloc(sizeof(struct linked_node));
+	new_node->item = item;
+	new_node->next = NULL;
+	struct linked_node* curr = s->head;
+	while(curr != NULL) {
+		curr = curr->next;
+	}
+	curr = new;
+}
+
+
+void* linked_pop(linked_t s) {
+	if (s->head != NULL) {
+		trie_t* item = s->head->item;
+		free(s->head);
+		if (s->head->next != NULL){
+			struct linked_node* new_head = s->head->next;
+			s->head = new_head;
+		} else {
+			s->head = NULL;
+		}
+		return item;
+	} else {
+		return NULL;
+	}
+}
