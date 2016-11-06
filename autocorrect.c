@@ -168,13 +168,13 @@ void linked_append(linked_t s, trie_t item) {
 	while(curr != NULL) {
 		curr = curr->next;
 	}
-	curr = new;
+	curr = new_node;
 }
 
 
 void* linked_pop(linked_t s) {
 	if (s->head != NULL) {
-		trie_t* item = s->head->item;
+		trie_t item = s->head->item;
 		free(s->head);
 		if (s->head->next != NULL){
 			struct linked_node* new_head = s->head->next;
