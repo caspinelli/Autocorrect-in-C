@@ -141,7 +141,7 @@ trie_t follow_word(trie_t triePointer, char* wordGiven) {
 //////////////////////
 
 linked_t linked_create() {
-	linked newLinked = malloc(sizeof(struct linked)); // newLinked is a pointer to memory that is the size of a linked
+	struct linked newLinked = malloc(sizeof(struct linked)); // newLinked is a pointer to memory that is the size of a linked
 	newLinked->head = NULL; // follow the pointer and make the head of the linked NULL
 	return newLinked; // return the pointer to the linked
 }
