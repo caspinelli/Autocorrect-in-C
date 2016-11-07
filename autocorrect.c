@@ -92,7 +92,8 @@ void complete(trie_t triePointer, char* wordGiven) {
 			if (nodeSaver->frequency >= 1) {
 				printf("%s\n", wordSaver);
 			}
-			for (i; i < sizeof(nodeSaver->next)/sizeof(nodeSaver->next[0]); i++) {
+			int g = 0;
+			for (g; g < sizeof(nodeSaver->next)/sizeof(nodeSaver->next[0]); g++) {
 				printf("for loop ho many");
 				if (nodeSaver->next[i] != NULL) {
 					printf("hey now baby girl");
