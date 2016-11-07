@@ -259,7 +259,6 @@ trie_t linked_peek(linked_t s) {
 	if (s->head != NULL) {
 		return s->head->item;
 	} else {
-		printf("shouldnt\n");
 		return NULL;
 	}
 }
