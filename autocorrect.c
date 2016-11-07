@@ -231,7 +231,7 @@ void linked_append(linked_t s, trie_t item, char* iterativeBuild) {
 		curr = curr->next;
 	}
 	curr = new_node;
-	linked_t should = s->head;
+	linked_node* should = s->head;
 	printf("%p", should);
 }
 
