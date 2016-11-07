@@ -97,12 +97,16 @@ void complete(trie_t triePointer, char* wordGiven) {
 				if (nodeSaver->next[i] != NULL) {
 					printf("nope\n");
 					trie_t new_node = nodeSaver->next[i];
+					printf("qqqqq\n");
 					char buildingLetters[strlen(wordSaver) + 1];
+					printf("uuuuuuu\n");
 					int p = 0;
 					for (p; p < strlen(wordSaver); p++) {
 						buildingLetters[p] = wordSaver[p];
 					}
+					printf("iiiiiii\n");
 					buildingLetters[p+1] = nodeSaver->next[i]->character;
+					printf("ooooooo\n");
 					linked_append(stack, new_node, buildingLetters);
 				}
 			}
