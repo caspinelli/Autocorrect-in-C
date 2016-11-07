@@ -79,7 +79,8 @@ void complete(trie_t triePointer, char* wordGiven) {
 		for (i; i < sizeof(starterNode->next)/sizeof(starterNode->next[0]); i++) {
 			if (starterNode->next[i]->character =! NULL) {
 				trie_t new_node = starterNode->next[i];
-				linked_append(stack, new_node, new_node->character);
+				char single[1] = new_node->character;
+				linked_append(stack, new_node, single);
 			}
 		}
 		while (linked_peek(stack) != NULL) {
@@ -94,9 +95,9 @@ void complete(trie_t triePointer, char* wordGiven) {
 					char* buildingLetters[strlen(wordSaver) + 1];
 					int p = 0;
 					for (p; p < strlen(wordSaver); p++) {
-						buildingLetters[p] = wordSaver[p];
+						char buildingLetters[p] = wordSaver[p];
 					}
-					buildingLetters[p+1] = nodeSaver->next[i]->character;
+					char buildingLetters[p+1] = nodeSaver->next[i]->character;
 					linked_append(stack, new_node, buildingLetters);
 				}
 			}
