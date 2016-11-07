@@ -113,7 +113,7 @@ trie_t follow_word(trie_t triePointer, char* wordGiven) {
 	for (h; h < strlen(wordGiven); h++) {
 		char c = wordGiven[h];
 		int i = (int) c - 97;
-		if (triePointer->next[i] =! NULL) {
+		if (triePointer->next[i] =! 0) {
 			triePointer = triePointer->next[i];
 		} else {
 			return NULL;
@@ -121,7 +121,7 @@ trie_t follow_word(trie_t triePointer, char* wordGiven) {
 	}
 	int i = 0;
 	for (i; i < sizeof(triePointer->next)/sizeof(triePointer->next[0]); i++) {
-		if (triePointer->next[i] =! NULL) {
+		if (triePointer->next[i] =! 0) {
 			return triePointer;
 		}
 	}
