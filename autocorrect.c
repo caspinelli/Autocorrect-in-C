@@ -97,7 +97,8 @@ void complete(trie_t triePointer, char* wordGiven) {
 			if (nodeSaver->frequency >= 1) {
 				int c = 0;
 				for (c; c < strlen(wordSaver); c++) {
-				printf("%c", wordSaver[c]);
+					printf("%c", wordSaver[c]);
+				}
 				printf("\n");
 			}
 			int g = 0;
