@@ -77,7 +77,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 		linked_t stack = linked_create();
 		int i = 0;
 		for (i; i < sizeof(starterNode->next)/sizeof(starterNode->next[0]); i++) {
-			if (starterNode->next[i] =! NULL) {
+			if (starterNode->next[i]->character =! NULL) {
 				trie_t new_node = starterNode->next[i];
 				linked_append(stack, new_node, new_node->character);
 			}
@@ -110,10 +110,10 @@ trie_t follow_word(trie_t triePointer, char* wordGiven) {
 	for (h; h < strlen(wordGiven); h++) {
 		char c = wordGiven[h];
 		int i = (int) c - 97;
-		if (triePointer->next[i]->character == NULL) {
-			return NULL;
-		} else {
+		if (triePointer->next[i]->character =! NULL) {
 			triePointer = triePointer->next[i];
+		} else {
+			return NULL;
 		}
 	}
 	int i = 0;
