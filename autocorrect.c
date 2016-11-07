@@ -224,11 +224,11 @@ void linked_append(linked_t s, trie_t item, char* iterativeBuild) {
 	int h = 0;
 	for (h; h < strlen(iterativeBuild); h++) {
 		new_node->iterativeBuild[h] = iterativeBuild[h];
+		printf("screwy?");
 	}
 	new_node->next = NULL;
 	struct linked_node* curr = s->head;
 	while(curr != NULL) {
-		printf("No reason to be in here");
 		curr = curr->next;
 	}
 	curr = new_node;
