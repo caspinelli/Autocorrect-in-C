@@ -85,14 +85,17 @@ void complete(trie_t triePointer, char* wordGiven) {
 			}
 		}
 		while (linked_peek(stack) != NULL) {
+			printf("Yeah\n");
 			char* wordSaver = stack->head->iterativeBuild;
 			trie_t nodeSaver = linked_pop(stack); 
 			if (nodeSaver->frequency >= 1) {
+				printf("%c\n", wordSaver);
 			}
 			int g = 0;
 			for (g; g < sizeof(nodeSaver->next)/sizeof(nodeSaver->next[0]); g++) {
+				printf("heppen\n");
 				if (nodeSaver->next[i] != NULL) {
-					printf("yeah");
+					printf("nope\n");
 					trie_t new_node = nodeSaver->next[i];
 					char buildingLetters[strlen(wordSaver) + 1];
 					int p = 0;
@@ -259,6 +262,7 @@ trie_t linked_peek(linked_t s) {
 	if (s->head != NULL) {
 		return s->head->item;
 	} else {
+		printf("shouldnt\n");
 		return NULL;
 	}
 }
