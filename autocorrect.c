@@ -81,12 +81,12 @@ void complete(trie_t triePointer, char* wordGiven) {
 		for (i; i < sizeof(starterNode->next)/sizeof(starterNode->next[0]); i++) {
 			if (starterNode->next[i] != NULL) {
 				trie_t new_node = starterNode->next[i];
-				printf("why wont lip lap");
+				printf("why wont lip lap\n");
 				linked_append(stack, new_node, &(new_node->character));
 			}
 		}
 		while (linked_peek(stack) != NULL) {
-			printf("Did a thing");
+			printf("Did a thing\n");
 			char* wordSaver = stack->head->iterativeBuild;
 			trie_t nodeSaver = linked_pop(stack); 
 			if (nodeSaver->frequency >= 1) {
@@ -96,7 +96,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 			for (g; g < sizeof(nodeSaver->next)/sizeof(nodeSaver->next[0]); g++) {
 				printf("for loop ho many\n");
 				if (nodeSaver->next[i] != NULL) {
-					printf("hey now baby girl");
+					printf("hey now baby girl\n");
 					trie_t new_node = nodeSaver->next[i];
 					char buildingLetters[strlen(wordSaver) + 1];
 					int p = 0;
@@ -223,7 +223,7 @@ void linked_destroy(linked_t s) {
 
 
 void linked_append(linked_t s, trie_t item, char* iterativeBuild) {
-	printf("Got to append");
+	printf("Got to append\n");
 	struct linked_node* new_node = malloc(sizeof(struct linked_node) + (sizeof(char) * strlen(iterativeBuild)));
 	new_node->item = item;
 	int h = 0;
@@ -265,12 +265,12 @@ trie_t linked_pop(linked_t s) {
 
 
 trie_t linked_peek(linked_t s) {
-	printf("One");
+	printf("One ");
 	if (s->head != NULL) {
-		printf("should");
+		printf("should\n");
 		return s->head->item;
 	} else {
-		printf("shouldnt");
+		printf("shouldnt\n");
 		return NULL;
 	}
 }
