@@ -62,7 +62,8 @@ trie_t follow_word(trie_t triePointer, char* wordGiven);
 void main() {
 	trie_t testTrie = create_trie();
 	trie_fill(testTrie);
-	delete_trie(testTrie);
+	char* testWord = "coo";
+	complete(testTrie, testWord);
 
 }
 
@@ -71,13 +72,6 @@ void main() {
 // Autocorrect Functions //
 ///////////////////////////
 
-/*
-char* concat(const char* s1, const char* s2) {
-    char result[strlen(s1)+strlen(s2)+1]; //+1 for the zero-terminator
-    strcpy(result, s1);
-    strcat(result, s2);
-    return result;
-} */
 
 void complete(trie_t triePointer, char* wordGiven) {
 	trie_t starterNode = follow_word(triePointer, wordGiven);
@@ -109,6 +103,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 				}
 			}
 		}
+		linked_destroy(stack);
 	}
 }
 
