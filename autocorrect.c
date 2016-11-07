@@ -81,6 +81,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 		for (i; i < sizeof(starterNode->next)/sizeof(starterNode->next[0]); i++) {
 			if (starterNode->next[i] != NULL) {
 				trie_t new_node = starterNode->next[i];
+				printf("why wont lip lap");
 				linked_append(stack, new_node, &(new_node->character));
 			}
 		}
@@ -93,6 +94,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 			}
 			for (i; i < sizeof(nodeSaver->next)/sizeof(nodeSaver->next[0]); i++) {
 				if (nodeSaver->next[i] != NULL) {
+					printf("hey now baby girl");
 					trie_t new_node = nodeSaver->next[i];
 					char buildingLetters[strlen(wordSaver) + 1];
 					int p = 0;
