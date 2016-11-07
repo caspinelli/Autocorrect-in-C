@@ -246,6 +246,7 @@ trie_t linked_pop(linked_t s) {
 		trie_t item = s->head->item;
 		free(s->head);
 		if (s->head->next != NULL){
+			printf("should happen multiple times will it\n");
 			struct linked_node* new_head = s->head->next;
 			s->head = new_head;
 		} else {
