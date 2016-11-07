@@ -228,6 +228,7 @@ void linked_append(linked_t s, trie_t item, char* iterativeBuild) {
 	new_node->next = NULL;
 	struct linked_node* curr = s->head;
 	while(curr != NULL) {
+		printf("No reason to be in here");
 		curr = curr->next;
 	}
 	curr = new_node;
