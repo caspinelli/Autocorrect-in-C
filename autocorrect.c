@@ -232,12 +232,12 @@ void linked_append(linked_t s, trie_t item, char* iterativeBuild) {
 	} else {
 		struct linked_node* curr = s->head; 
 		while(curr->next != NULL) {
+			printf("how many times must a man cross\n");
 			curr = curr->next;
 		}
 		curr->next = new_node;
 	}
-	struct linked_node* should = s->head;
-	printf("%p", should);
+
 }
 
 
