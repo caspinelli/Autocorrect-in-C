@@ -226,11 +226,15 @@ void linked_append(linked_t s, trie_t item, char* iterativeBuild) {
 		new_node->iterativeBuild[h] = iterativeBuild[h];
 	}
 	new_node->next = NULL;
-	struct linked_node* curr = s->head;
-	while(curr->next != NULL) {
-		curr = curr->next;
+	if (s->head == NULL) {
+		s->head = new_node;
+	} else {
+		struct linked_node* curr = s->head; 
+		while(curr->next != NULL) {
+			curr = curr->next;
+		}
+		curr->next = new_node;
 	}
-	curr->next = new_node;
 	struct linked_node* should = s->head;
 	printf("%p\n", curr);
 	printf("%p", should);
