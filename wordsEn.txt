@@ -19,6 +19,7 @@ clara
 leela
 henry
 minster
+cider
 spinelli
 williams
 pritchard
