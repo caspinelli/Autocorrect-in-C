@@ -223,7 +223,7 @@ void linked_destroy(linked_t s) {
 
 
 void linked_append(linked_t s, trie_t item, char* iterativeBuild) {
-	printf("Got to append\n");
+	printf("Got to append ");
 	struct linked_node* new_node = malloc(sizeof(struct linked_node) + (sizeof(char) * strlen(iterativeBuild)));
 	new_node->item = item;
 	int h = 0;
@@ -231,6 +231,7 @@ void linked_append(linked_t s, trie_t item, char* iterativeBuild) {
 		new_node->iterativeBuild[h] = iterativeBuild[h];
 	}
 	new_node->next = NULL;
+	printf("Double\n");
 	if (s->head == NULL) {
 		s->head = new_node;
 	} else {
