@@ -4,15 +4,6 @@
 
 // Compile with: gcc -g -std=iso9899:199x autocorrect.c -o testfile
 
-//////////////////////////////
-// Autocorrect Declarations //
-//////////////////////////////
-
-
-void complete(trie_t triePointer, char* wordGiven);
-void correct(trie_t triePointer, char* wordGiven);
-trie_t follow_word(trie_t triePointer, char* wordGiven);
-
 
 ///////////////////////
 // Trie Declarations //
@@ -52,7 +43,16 @@ linked_t linked_create(); // creates linked list -- returns pointer to a struct 
 void linked_destroy(linked_t s); // destroys linkedlist
 void linked_append(linked_t s, trie_t item); // adds node to end of linked
 trie_t linked_pop(linked_t s); // returns first item in the linked and removes it
-trie_t linked_peek(linked_t s)
+trie_t linked_peek(linked_t s);
+
+
+//////////////////////////////
+// Autocorrect Declarations //
+//////////////////////////////
+
+void complete(trie_t triePointer, char* wordGiven);
+void correct(trie_t triePointer, char* wordGiven);
+trie_t follow_word(trie_t triePointer, char* wordGiven);
 
 
 //////////
