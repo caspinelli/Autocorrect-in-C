@@ -218,7 +218,7 @@ void linked_append(linked_t s, trie_t item, char* iterativeBuild) {
 	struct linked_node* new_node = malloc(sizeof(struct linked_node) + (sizeof(char) * strlen(iterativeBuild)));
 	new_node->item = item;
 	int h = 0;
-	for (h; h < strlen(wordGiven); h++) {
+	for (h; h < strlen(iterativeBuild); h++) {
 		new_node->iterativeBuild[h] = iterativeBuild[h];
 	}
 	new_node->next = NULL;
