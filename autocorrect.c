@@ -250,6 +250,7 @@ trie_t linked_pop(linked_t s) {
 			s->head = new_head;
 		} else {
 			s->head = NULL;
+			printf("set to nulllllll\n");
 		}
 		return item;
 	} else {
