@@ -83,7 +83,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 				trie_t new_node = starterNode->next[i];
 				char starterLetters[strlen(wordGiven) + 1];
 				int q = 0;
-				for (q; q < strlen(wordSaver); q++) {
+				for (q; q < strlen(wordGiven); q++) {
 					starterLetters[q] = wordSaver[q];
 				}
 				starterLetters[q+1] = new_node->character;
