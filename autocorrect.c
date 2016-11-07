@@ -64,7 +64,6 @@ void main() {
 	trie_fill(testTrie);
 	char* testWord = "coo";
 	complete(testTrie, testWord);
-
 }
 
 
@@ -165,6 +164,7 @@ void insert_trie(trie_t triePointer, char* word) {
 			triePointer->next[i]->character = word[h];
 			if (word[h+1] == '\0') {
 				triePointer->next[i]->frequency = 1;
+				printf("Magic");
 			} else {
 				triePointer->next[i]->frequency = 0;
 			}
@@ -175,6 +175,7 @@ void insert_trie(trie_t triePointer, char* word) {
 		} else {
 			if (word[h+1] == '\0') {
 				triePointer->frequency = 1;
+				printf("Magic");
 			}
 		}
 		triePointer = triePointer->next[i];
