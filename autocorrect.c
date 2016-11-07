@@ -227,7 +227,7 @@ void linked_append(linked_t s, trie_t item, char* iterativeBuild) {
 	}
 	new_node->next = NULL;
 	struct linked_node* curr = s->head;
-	while(curr != NULL) {
+	while(curr->next != NULL) {
 		curr = curr->next;
 	}
 	curr = new_node;
