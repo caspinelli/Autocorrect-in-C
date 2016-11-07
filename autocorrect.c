@@ -71,6 +71,14 @@ void main() {
 // Autocorrect Functions //
 ///////////////////////////
 
+/*
+char* concat(const char* s1, const char* s2) {
+    char result[strlen(s1)+strlen(s2)+1]; //+1 for the zero-terminator
+    strcpy(result, s1);
+    strcat(result, s2);
+    return result;
+} */
+
 void complete(trie_t triePointer, char* wordGiven) {
 	trie_t starterNode = follow_word(triePointer, wordGiven);
 	if (starterNode != NULL) {
@@ -79,8 +87,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 		for (i; i < sizeof(starterNode->next)/sizeof(starterNode->next[0]); i++) {
 			if (starterNode->next[i]->character =! NULL) {
 				trie_t new_node = starterNode->next[i];
-				char single[1] = new_node->character;
-				linked_append(stack, new_node, single);
+				linked_append(stack, new_node, new_node->character);
 			}
 		}
 		while (linked_peek(stack) != NULL) {
@@ -92,7 +99,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 			for (i; i < sizeof(nodeSaver->next)/sizeof(nodeSaver->next[0]); i++) {
 				if (nodeSaver->next[i]->character =! NULL) {
 					trie_t new_node = nodeSaver->next[i];
-					char* buildingLetters[strlen(wordSaver) + 1];
+					char buildingLetters[strlen(wordSaver) + 1];
 					int p = 0;
 					for (p; p < strlen(wordSaver); p++) {
 						buildingLetters[p] = wordSaver[p];
