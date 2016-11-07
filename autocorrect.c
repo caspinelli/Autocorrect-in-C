@@ -81,7 +81,13 @@ void complete(trie_t triePointer, char* wordGiven) {
 		for (i; i < sizeof(starterNode->next)/sizeof(starterNode->next[0]); i++) {
 			if (starterNode->next[i] != NULL) {
 				trie_t new_node = starterNode->next[i];
-				linked_append(stack, new_node, &(new_node->character));
+				char starterLetters[strlen(wordGiven) + 1];
+				int q = 0;
+				for (q; q < strlen(wordSaver); q++) {
+					starterLetters[q] = wordSaver[q];
+				}
+				starterLetters[q+1] = new_node->character;
+				linked_append(stack, new_node, starterLetters);
 			}
 		}
 		while (linked_peek(stack) != NULL) {
