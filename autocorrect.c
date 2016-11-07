@@ -164,7 +164,6 @@ void insert_trie(trie_t triePointer, char* word) {
 			triePointer->next[i]->character = word[h];
 			if (word[h+1] == '\0') {
 				triePointer->next[i]->frequency = 1;
-				printf("Magic");
 			} else {
 				triePointer->next[i]->frequency = 0;
 			}
@@ -175,7 +174,6 @@ void insert_trie(trie_t triePointer, char* word) {
 		} else {
 			if (word[h+1] == '\0') {
 				triePointer->frequency = 1;
-				printf("Magic");
 			}
 		}
 		triePointer = triePointer->next[i];
@@ -221,9 +219,10 @@ void linked_append(linked_t s, trie_t item, char* iterativeBuild) {
 	struct linked_node* new_node = malloc(sizeof(struct linked_node) + (sizeof(char) * strlen(iterativeBuild)));
 	new_node->item = item;
 	int h = 0;
-	for (h; h < strlen(iterativeBuild); h++) {
-		new_node->iterativeBuild[h] = iterativeBuild[h];
-	}
+	//for (h; h < strlen(iterativeBuild); h++) {
+	//	new_node->iterativeBuild[h] = iterativeBuild[h];
+	//}
+	new_node->iterativeBuild = iterativeBuild;
 	new_node->next = NULL;
 	struct linked_node* curr = s->head;
 	while(curr != NULL) {
