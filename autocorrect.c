@@ -64,6 +64,7 @@ void main() {
 	trie_fill(testTrie);
 	char* testWord = "coo";
 	complete(testTrie, testWord);
+	delete_trie(testTrie);
 }
 
 
