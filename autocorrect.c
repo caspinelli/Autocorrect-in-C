@@ -74,6 +74,8 @@ void main() {
 
 void complete(trie_t triePointer, char* wordGiven) {
 	trie_t starterNode = follow_word(triePointer, wordGiven);
+	char* hello = "hello";
+	printf("%s\n", hello);
 	if (starterNode != NULL) {
 		linked_t stack = linked_create();
 		int i = 0;
