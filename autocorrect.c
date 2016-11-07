@@ -237,6 +237,7 @@ void linked_append(linked_t s, trie_t item, char* iterativeBuild) {
 		s->head = new_node;
 	} else {
 		struct linked_node* curr = s->head; 
+		printf("Really bad");
 		while(curr->next != NULL) {
 			printf("how many times must a man cross\n");
 			curr = curr->next;
