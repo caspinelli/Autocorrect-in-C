@@ -74,8 +74,6 @@ void main() {
 
 void complete(trie_t triePointer, char* wordGiven) {
 	trie_t starterNode = follow_word(triePointer, wordGiven);
-	char* hello = "hello";
-	printf("%s\n", hello);
 	if (starterNode != NULL) {
 		linked_t stack = linked_create();
 		int i = 0;
@@ -86,6 +84,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 			}
 		}
 		while (linked_peek(stack) != NULL) {
+			printf("Did a thing");
 			char* wordSaver = stack->head->iterativeBuild;
 			trie_t nodeSaver = linked_pop(stack); 
 			if (nodeSaver->frequency >= 1) {
