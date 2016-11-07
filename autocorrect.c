@@ -41,7 +41,7 @@ struct linked_node {
 
 linked_t linked_create(); // creates linked list -- returns pointer to a struct linked, allocates space for the head
 void linked_destroy(linked_t s); // destroys linkedlist
-void linked_append(linked_t s, trie_t item); // adds node to end of linked
+void linked_append(linked_t s, trie_t item, char* iterativeBuild); // adds node to end of linked
 trie_t linked_pop(linked_t s); // returns first item in the linked and removes it
 trie_t linked_peek(linked_t s);
 
@@ -110,7 +110,7 @@ trie_t follow_word(trie_t triePointer, char* wordGiven) {
 	for (h; h < strlen(wordGiven); h++) {
 		char c = wordGiven[h];
 		int i = (int) c - 97;
-		if (triePointer->next[i] == NULL) {
+		if (triePointer->next[i]->character == NULL) {
 			return NULL;
 		} else {
 			triePointer = triePointer->next[i];
@@ -118,7 +118,7 @@ trie_t follow_word(trie_t triePointer, char* wordGiven) {
 	}
 	int i = 0;
 	for (i; i < sizeof(triePointer->next)/sizeof(triePointer->next[0]); i++) {
-		if (triePointer->next[i] =! NULL) {
+		if (triePointer->next[i]->character =! NULL) {
 			return triePointer;
 		}
 	}
@@ -229,7 +229,6 @@ void linked_append(linked_t s, trie_t item, char* iterativeBuild) {
 trie_t linked_pop(linked_t s) {
 	if (s->head != NULL) {
 		trie_t item = s->head->item;
-		free(s->iterativeBuild);
 		free(s->head);
 		if (s->head->next != NULL){
 			struct linked_node* new_head = s->head->next;
