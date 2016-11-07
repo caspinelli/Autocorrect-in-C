@@ -251,6 +251,7 @@ trie_t linked_pop(linked_t s) {
 
 
 trie_t linked_peek(linked_t s) {
+	printf("One");
 	if (s->head != NULL) {
 		return s->head->item;
 	} else {
