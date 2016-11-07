@@ -233,6 +233,7 @@ void linked_append(linked_t s, trie_t item, char* iterativeBuild) {
 	new_node->next = NULL;
 	printf("Double\n");
 	if (s->head == NULL) {
+		printf("Tottale stuff\n");
 		s->head = new_node;
 	} else {
 		struct linked_node* curr = s->head; 
