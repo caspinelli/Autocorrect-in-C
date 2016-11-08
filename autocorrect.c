@@ -86,10 +86,10 @@ void complete(trie_t triePointer, char* wordGiven) {
 				for (q; q < strlen(wordGiven); q++) {
 					starterLetters[q] = wordGiven[q];
 				}
-				starterLetters[q+1] = new_node->character;
-				starterLetters[q+2] = '\0';
+				starterLetters[q] = new_node->character;
+				starterLetters[q+1] = '\0';
 				linked_append(stack, new_node, starterLetters);
-			}
+		
 		}
 		while (linked_peek(stack) != NULL) {
 			char* wordSaver = stack->head->iterativeBuild;
@@ -110,8 +110,8 @@ void complete(trie_t triePointer, char* wordGiven) {
 					for (p; p < strlen(wordSaver); p++) {
 						buildingLetters[p] = wordSaver[p];
 					}
-					buildingLetters[p+1] = nodeSaver->next[g]->character;
-					buildingLetters[p+2] = '\0';
+					buildingLetters[p] = nodeSaver->next[g]->character;
+					buildingLetters[p+1] = '\0';
 					linked_append(stack, new_node, buildingLetters);
 				}
 			}
