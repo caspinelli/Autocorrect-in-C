@@ -72,14 +72,6 @@ void main() {
 // Autocorrect Functions //
 ///////////////////////////
 
-int magic_strlen(struct linked_node* str) {
-	int counter = 0;
-	while(str->iterativeBuild[counter] != '\0') {
-		counter++;
-	}
-	return counter - 1;
-}
-
 void complete(trie_t triePointer, char* wordGiven) {
 	trie_t starterNode = follow_word(triePointer, wordGiven);
 	if (starterNode != NULL) {
@@ -273,9 +265,7 @@ trie_t linked_pop(linked_t s) {
 		} else {
 			s->head = NULL;
 		}
-		printf("maybe\n");
 		free(toBeFreed);
-		printf("meybe not\n");
 		return item;
 	} else {
 		return NULL;
