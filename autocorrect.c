@@ -259,7 +259,9 @@ trie_t linked_pop(linked_t s) {
 		} else {
 			s->head = NULL;
 		}
+		printf("maybe\n");
 		free(toBeFreed);
+		printf("meybe not\n");
 		return item;
 	} else {
 		return NULL;
