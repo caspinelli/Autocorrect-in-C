@@ -4,6 +4,38 @@
 
 // Compile with: gcc -g -std=iso9899:199x autocorrect.c -o testfile
 
+/*
+cooper
+dog
+cat
+pig
+horse
+cow
+coop
+coopnaldo
+cooperino
+coopard
+coopardino
+coop
+coop
+horse
+scott
+reid
+andy
+clara
+leela
+henry
+minster
+cider
+spinelli
+williams
+pritchard
+wood
+duffy
+ghaemmaghami
+deal
+*/
+
 
 ///////////////////////
 // Trie Declarations //
