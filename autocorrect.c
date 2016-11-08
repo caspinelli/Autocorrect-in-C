@@ -99,7 +99,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 			}
 		}
 		while (linked_peek(stack) != NULL) {
-			int length = magic_strlen(stack->head);
+			int length = strlen(stack->head->iterativeBuild);
 			char wordSaver[length + 1];
 			int r = 0;
 			for (r; r < length; r++) {
@@ -243,7 +243,7 @@ void linked_destroy(linked_t s) {
 
 
 void linked_append(linked_t s, trie_t item, char iterativeBuild[]) {
-	struct linked_node* new_node = malloc(sizeof(struct linked_node) + (sizeof(char) * strlen(iterativeBuild)));
+	struct linked_node* new_node = malloc(sizeof(struct linked_node) + (sizeof(char) * (strlen(iterativeBuild) + 1));
 	new_node->item = item;
 	int h = 0;
 	for (h; h < strlen(iterativeBuild) + 1; h++) {
