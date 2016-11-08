@@ -252,7 +252,7 @@ void linked_append(linked_t s, trie_t item, char iterativeBuild[]) {
 trie_t linked_pop(linked_t s) {
 	if (s->head != NULL) {
 		trie_t item = s->head->item;
-		linked_t toBeFreed = s->head;
+		struct linked_node* toBeFreed = s->head;
 		if (s->head->next != NULL){
 			struct linked_node* new_head = s->head->next;
 			s->head = new_head;
