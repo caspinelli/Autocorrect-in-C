@@ -97,7 +97,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 			for (r; r < length; r++) {
 				wordSaver[r] = stack->head->iterativeBuild[r];
 			}
-			wordSaver[r] = '/0';
+			wordSaver[r] = '\0';
 			trie_t nodeSaver = linked_pop(stack); 
 			if (nodeSaver->frequency >= 1) {
 				int c = 0;
