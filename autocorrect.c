@@ -29,6 +29,7 @@ void delete_trie(trie_t triePointer);
 typedef struct linked* linked_t;
 
 struct linked {
+
 	struct linked_node* head;
 };
 
@@ -71,6 +72,13 @@ void main() {
 // Autocorrect Functions //
 ///////////////////////////
 
+int magic_strlen(linked_t str) {
+	int counter = 0;
+	while(str->iterativeBuild[counter] != '\0') {
+		counter++;
+	}
+	return counter;
+}
 
 void complete(trie_t triePointer, char* wordGiven) {
 	trie_t starterNode = follow_word(triePointer, wordGiven);
@@ -91,7 +99,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 			}
 		}
 		while (linked_peek(stack) != NULL) {
-			int length = strlen(stack->head->iterativeBuild);
+			int length = magic_strlen(stack->head->iterativeBuild);
 			char wordSaver[length + 1];
 			int r = 0;
 			for (r; r < length; r++) {
