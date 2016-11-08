@@ -230,6 +230,7 @@ void linked_destroy(linked_t s) {
 		free(curr); // Item does not need to get freed
 		curr = temp;
 	}
+	free(s->head);
 	free(s);
 	(s) = NULL;
 }
