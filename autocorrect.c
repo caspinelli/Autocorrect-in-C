@@ -99,7 +99,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 			}
 		}
 		while (linked_peek(stack) != NULL) {
-			int length = magic_strlen(stack->head->iterativeBuild);
+			int length = magic_strlen(stack->head);
 			char wordSaver[length + 1];
 			int r = 0;
 			for (r; r < length; r++) {
