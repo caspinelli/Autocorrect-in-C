@@ -72,7 +72,7 @@ void main() {
 // Autocorrect Functions //
 ///////////////////////////
 
-int magic_strlen(linked_t str) {
+int magic_strlen(linked_node* str) {
 	int counter = 0;
 	while(str->iterativeBuild[counter] != '\0') {
 		counter++;
