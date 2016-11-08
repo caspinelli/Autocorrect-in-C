@@ -89,7 +89,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 				starterLetters[q] = new_node->character;
 				starterLetters[q+1] = '\0';
 				linked_append(stack, new_node, starterLetters);
-		
+			}
 		}
 		while (linked_peek(stack) != NULL) {
 			char* wordSaver = stack->head->iterativeBuild;
