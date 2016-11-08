@@ -77,7 +77,7 @@ int magic_strlen(struct linked_node* str) {
 	while(str->iterativeBuild[counter] != '\0') {
 		counter++;
 	}
-	return counter;
+	return counter - 1;
 }
 
 void complete(trie_t triePointer, char* wordGiven) {
