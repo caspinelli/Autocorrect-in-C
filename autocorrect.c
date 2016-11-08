@@ -191,7 +191,7 @@ trie_t create_trie() {
 
 
 void trie_fill(trie_t triePointer) {
-	FILE* pFile = fopen("wordsEn.txt", "r");
+	FILE* pFile = fopen("fiveLetter.txt", "r");
 	char line[256];
 	while(fgets(line, sizeof(line), pFile)){
   		char* wordRead = strtok(line, "\n");
