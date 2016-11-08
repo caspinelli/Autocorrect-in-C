@@ -94,7 +94,7 @@ trie_t follow_word(trie_t triePointer, char* wordGiven);
 void main() {
 	trie_t testTrie = create_trie();
 	trie_fill(testTrie);
-	char* testWord = "co";
+	char* testWord = "cos";
 	complete(testTrie, testWord);
 	delete_trie(testTrie);
 }
