@@ -62,8 +62,8 @@ trie_t follow_word(trie_t triePointer, char* wordGiven);
 void main() {
 	trie_t testTrie = create_trie();
 	trie_fill(testTrie);
-	char* testWord = "c";
-	complete(testTrie, testWord);
+	//char* testWord = "c";
+	//complete(testTrie, testWord);
 	delete_trie(testTrie);
 }
 
@@ -246,7 +246,7 @@ void linked_destroy(linked_t s) {
 	struct linked_node* curr = s->head;
 	while(curr != NULL) {
 		struct linked_node* temp = curr->next;
-		free(curr); // Item does not need to get freed
+		free(curr);
 		curr = temp;
 	}
 	free(s);
