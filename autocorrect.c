@@ -107,19 +107,13 @@ void complete(trie_t triePointer, char* wordGiven) {
 	if (starterNode != NULL) {
 		linked_t stack = linked_create();
 		int i = 0;
-		for (i; i < sizeof(starterNode->next)/sizeof(starterNode->next[0]); i++) {
-			if (starterNode->next[i] != NULL) {
-				trie_t new_node = starterNode->next[i];
-				char starterLetters[strlen(wordGiven) + 2];
-				int q = 0;
-				for (q; q < strlen(wordGiven); q++) {
-					starterLetters[q] = wordGiven[q];
-				}
-				starterLetters[q] = new_node->character;
-				starterLetters[q+1] = '\0';
-				linked_append(stack, new_node, starterLetters, NULL);
-			}
+		char starterLetters[strlen(wordGiven) + 1];
+		int q = 0;
+		for (q; q < strlen(wordGiven); q++) {
+			starterLetters[q] = wordGiven[q];
 		}
+		starterLetters[q] = '\0';
+		linked_append(stack, starterNode, starterLetters, NULL);
 		while (linked_peek(stack) != NULL) {
 			int length = strlen(stack->head->iterativeBuild);
 			char wordSaver[length + 1];
