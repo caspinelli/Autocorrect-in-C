@@ -131,6 +131,7 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 						for (int x = 0; x < strlen(buildingLetters); x++) {
 							printf("%c", buildingLetters[x]);
 						}
+						printf("\n");
 					}
 					linked_append(bfsLinked, new_node, buildingLetters, NULL);
 				} else {
@@ -146,14 +147,13 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 							cost = 1;
 						}
 						newMatrix[b+1] = numberMin(fetchedMatrix[b+1] + 1, newMatrix[b] + 1, fetchedMatrix[b] + cost);
-						//printf("%i", newMatrix[b+1]);
 					}
-					//printf("\n");
 					// Check whether to print
 					if (newMatrix[givenLength - 1] <= maxEdit && new_node->frequency > 0) {
 						for (int x = 0; x < strlen(buildingLetters); x++) {
 							printf("%c", buildingLetters[x]);
 						}
+						printf("\n");
 					}
 
 					// Check whether to initiate complete
