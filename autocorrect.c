@@ -94,11 +94,10 @@ int arrayMin(int* arrayToCheck, int size) {
 }
 
 void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
-	linked_t bfsLinked = linked_create();
+	linked_t bfsLinked = linked_create(); // Creates linked
 	int givenLength = strlen(wordGiven) + 1;
 	int* startingMatrix = malloc(sizeof(int) * givenLength);
-	int i = 0;
-	for (i; i < givenLength; i++) {
+	for (int i = 0; i < givenLength; i++) {
 		startingMatrix[i] = i;
 	}
 	char startNull[1] = "\0";
@@ -107,19 +106,16 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 		int* fetchedMatrix = bfsLinked->head->correctMatix;
 		int length = strlen(bfsLinked->head->iterativeBuild);
 		char wordSaver[length + 1];
-		int r = 0;
-		for (r; r < length; r++) {
+		for (int r = 0; r < length; r++) {
 			wordSaver[r] = bfsLinked->head->iterativeBuild[r];
 		}
 		wordSaver[r] = '\0';
 		trie_t nodeSaver = linked_pop(bfsLinked);
-		int g = 0;
-		for (g; g < sizeof(nodeSaver->next)/sizeof(nodeSaver->next[0]); g++) {
+		for (int g = 0; g < sizeof(nodeSaver->next)/sizeof(nodeSaver->next[0]); g++) {
 			if (nodeSaver->next[g] != NULL) {
 				trie_t new_node = nodeSaver->next[g];
 				char buildingLetters[strlen(wordSaver) + 2];
-				int p = 0;
-				for (p; p < strlen(wordSaver); p++) {
+				for (int p = 0; p < strlen(wordSaver); p++) {
 					buildingLetters[p] = wordSaver[p];
 				}
 				buildingLetters[p] = nodeSaver->next[g]->character;
