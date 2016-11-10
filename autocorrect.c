@@ -189,6 +189,7 @@ void trie_fill(trie_t triePointer) {
   		char* wordRead = strtok(line, "\n");
   		insert_trie(triePointer, wordRead);
   	}
+  	fclose(pFile);
 }
 
 
@@ -222,7 +223,6 @@ void insert_trie(trie_t triePointer, char* word) {
 void delete_trie(trie_t triePointer) {
 	int i = 0;
 	for (i; i < sizeof(triePointer->next)/(sizeof(triePointer->next[0])); i++) {
-		printf("%i\n", i);
 		if (triePointer->next[i] != NULL) {
 			delete_trie(triePointer->next[i]);
 		}
