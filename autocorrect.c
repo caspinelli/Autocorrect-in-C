@@ -60,7 +60,7 @@ void main() {
 	trie_t testTrie = create_trie();
 	trie_fill(testTrie);
 	char* testWord = "coop";
-	correct(testTrie, testWord, 3);
+	correctcomplete(testTrie, testWord, 3);
 	delete_trie(testTrie);
 }
 
