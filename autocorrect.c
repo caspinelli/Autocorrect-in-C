@@ -56,11 +56,11 @@ void correctcomplete(trie_t triePointer, char* wordGiven, int maxEdit);
 // Main //
 //////////
 
-void main() {
+void main(int argc, char** argv) {
 	trie_t testTrie = create_trie();
 	trie_fill(testTrie);
-	//char* testWord = "coop";
-	//correctcomplete(testTrie, testWord, 2);
+	if (argc > 2)
+		correctcomplete(testTrie, argv[1], atoi(argv[2]));
 	delete_trie(testTrie);
 }
 
