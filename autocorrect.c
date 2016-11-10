@@ -82,7 +82,7 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 	for (i; i < givenLength; i++) {
 		startingMatrix[i] = i;
 	}
-	char startNull[1] = '\0';
+	char startNull[1] = "\0";
 	linked_append(bfsLinked, triePointer, startNull, startingMatrix);
 
 
