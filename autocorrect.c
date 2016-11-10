@@ -63,7 +63,7 @@ void main() {
 	trie_t testTrie = create_trie();
 	trie_fill(testTrie);
 	char* testWord = "c";
-	complete(testTrie, testWord);
+	correct(testTrie, testWord);
 	delete_trie(testTrie);
 }
 
