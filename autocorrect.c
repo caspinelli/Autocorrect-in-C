@@ -43,7 +43,7 @@ linked_t linked_create(); // creates linked list -- returns pointer to a struct 
 void linked_destroy(linked_t s); // destroys linkedlist
 void linked_append(linked_t s, trie_t item, char iterativeBuild[], int* optionalMatix); // adds node to end of linked
 trie_t linked_pop(linked_t s); // returns first item in the linked and removes it
-trie_t linked_peek(linked_t s);
+struct linked_node* linked_peek(linked_t s);
 
 
 //////////////////////////////
