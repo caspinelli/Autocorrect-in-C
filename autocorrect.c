@@ -84,8 +84,7 @@ int numberMin(int one, int two, int three) {
 
 int arrayMin(int* arrayToCheck, int size) {
 	int min = arrayToCheck[0];
-	int w = 1;
-	for (w; w < size; w++) {
+	for (int w = 1; w < size; w++) {
 		if (arrayToCheck[w] < min) {
 			min = arrayToCheck[w];
 		}
@@ -106,7 +105,8 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 		int* fetchedMatrix = bfsLinked->head->correctMatix;
 		int length = strlen(bfsLinked->head->iterativeBuild);
 		char wordSaver[length + 1];
-		for (int r = 0; r < length; r++) {
+		int r = 0;
+		for (r; r < length; r++) {
 			wordSaver[r] = bfsLinked->head->iterativeBuild[r];
 		}
 		wordSaver[r] = '\0';
@@ -115,7 +115,8 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 			if (nodeSaver->next[g] != NULL) {
 				trie_t new_node = nodeSaver->next[g];
 				char buildingLetters[strlen(wordSaver) + 2];
-				for (int p = 0; p < strlen(wordSaver); p++) {
+				int p = 0;
+				for (p; p < strlen(wordSaver); p++) {
 					buildingLetters[p] = wordSaver[p];
 				}
 				buildingLetters[p] = nodeSaver->next[g]->character;
@@ -124,23 +125,19 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 				//New Matrix Building
 
 				if (fetchedMatrix == NULL) {
-					printf("initiates complete");
 					// Check whether to print
 					if (new_node->frequency > 0) {
-						int x = 0;
-						for (x; x < strlen(buildingLetters); x++) {
+						for (int x = 0; x < strlen(buildingLetters); x++) {
 							printf("%c", buildingLetters[x]);
 						}
 					}
 					linked_append(bfsLinked, new_node, buildingLetters, NULL);
 				} else {
-					printf("should get here");
 					// Make matrix
 					int* newMatrix = malloc(sizeof(int) * givenLength);
 					newMatrix[0] = strlen(buildingLetters);
 					int buildingLength = strlen(buildingLetters);
-					int b = 0;
-					for (b; b < givenLength - 1; b++) {
+					for (int b = 0; b < givenLength - 1; b++) {
 						int cost;
 						if (buildingLetters[buildingLength - 1] == wordGiven[b] || (buildingLength > 1 && buildingLetters[buildingLength - 1] == wordGiven[b - 1] && buildingLetters[buildingLength - 2] == wordGiven[b])) {
 							cost = 0;
@@ -148,12 +145,12 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 							cost = 1;
 						}
 						newMatrix[b+1] = numberMin(fetchedMatrix[b+1] + 1, newMatrix[b] + 1, fetchedMatrix[b] + cost);
+						printf("%i", newMatrix[b+1]);
 					}
-
+					printf("\n")
 					// Check whether to print
 					if (newMatrix[givenLength - 1] <= maxEdit && new_node->frequency > 0) {
-						int x = 0;
-						for (x; x < strlen(buildingLetters); x++) {
+						for (int x = 0; x < strlen(buildingLetters); x++) {
 							printf("%c", buildingLetters[x]);
 						}
 					}
