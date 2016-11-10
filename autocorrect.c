@@ -83,7 +83,7 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 	char startNull[1] = "\0";
 	linked_append(bfsLinked, triePointer, startNull, startingMatrix);
 	while (linked_peek(bfsLinked) != NULL) {
-		int* fetchedMatrix = bfsLinked->head->optionalMatix;
+		int* fetchedMatrix = bfsLinked->head->correctMatix;
 		int length = strlen(bfsLinked->head->iterativeBuild);
 		char wordSaver[length + 1];
 		int r = 0;
