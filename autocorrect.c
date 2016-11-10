@@ -36,13 +36,13 @@ struct linked {
 struct linked_node {
 	trie_t item;
 	struct linked_node* next;
-	int* correctArray;
+	int* correctMatix;
 	char iterativeBuild[];
 };
 
 linked_t linked_create(); // creates linked list -- returns pointer to a struct linked, allocates space for the head
 void linked_destroy(linked_t s); // destroys linkedlist
-void linked_append(linked_t s, trie_t item, char* iterativeBuild); // adds node to end of linked
+void linked_append(linked_t s, trie_t item, char iterativeBuild[], int* optionalMatix); // adds node to end of linked
 trie_t linked_pop(linked_t s); // returns first item in the linked and removes it
 trie_t linked_peek(linked_t s);
 
@@ -51,8 +51,8 @@ trie_t linked_peek(linked_t s);
 // Autocorrect Declarations //
 //////////////////////////////
 
+void correct(trie_t triePointer, char* wordGiven, int maxEdit);
 void complete(trie_t triePointer, char* wordGiven);
-void correct(trie_t triePointer, char* wordGiven);
 trie_t follow_word(trie_t triePointer, char* wordGiven);
 
 
@@ -73,6 +73,23 @@ void main() {
 // Autocorrect Functions //
 ///////////////////////////
 
+
+void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
+	linked_t bfsLinked = linked_create();
+	int givenLength = strlen(wordGiven) + maxEdit;
+	int* startingMatrix = malloc(sizeof(int) * givenLength);
+	int i = 0;
+	for (i; i < givenLength; i++) {
+		startingMatrix[i] = i;
+	}
+	char startNull[1] = '\0';
+	linked_append(bfsLinked, triePointer, startNull, startingMatrix);
+
+
+}
+
+
+
 void complete(trie_t triePointer, char* wordGiven) {
 	trie_t starterNode = follow_word(triePointer, wordGiven);
 	if (starterNode != NULL) {
@@ -88,7 +105,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 				}
 				starterLetters[q] = new_node->character;
 				starterLetters[q+1] = '\0';
-				linked_append(stack, new_node, starterLetters);
+				linked_append(stack, new_node, starterLetters, NULL);
 			}
 		}
 		while (linked_peek(stack) != NULL) {
@@ -118,7 +135,7 @@ void complete(trie_t triePointer, char* wordGiven) {
 					}
 					buildingLetters[p] = nodeSaver->next[g]->character;
 					buildingLetters[p+1] = '\0';
-					linked_append(stack, new_node, buildingLetters);
+					linked_append(stack, new_node, buildingLetters, NULL);
 				}
 			}
 		}
@@ -236,9 +253,10 @@ void linked_destroy(linked_t s) {
 }
 
 
-void linked_append(linked_t s, trie_t item, char iterativeBuild[]) {
+void linked_append(linked_t s, trie_t item, char iterativeBuild[], int* optionalMatix) {
 	struct linked_node* new_node = malloc(sizeof(struct linked_node) + (sizeof(char) * (strlen(iterativeBuild) + 1)));
 	new_node->item = item;
+	new_node->correctMatix = optionalMatix;
 	int h = 0;
 	for (h; h < strlen(iterativeBuild) + 1; h++) {
 		new_node->iterativeBuild[h] = iterativeBuild[h];
