@@ -128,6 +128,7 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 				//New Matrix Building
 
 				if (fetchedMatrix == NULL) {
+					printf("initiates complete");
 					// Check whether to print
 					if (new_node->frequency > 0) {
 						int x = 0;
@@ -137,6 +138,7 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 					}
 					linked_append(bfsLinked, new_node, buildingLetters, NULL);
 				} else {
+					printf("should get here");
 					// Make matrix
 					int* newMatrix = malloc(sizeof(int) * givenLength);
 					newMatrix[0] = strlen(buildingLetters);
