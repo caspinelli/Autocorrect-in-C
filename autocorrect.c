@@ -61,10 +61,7 @@ trie_t follow_word(trie_t triePointer, char* wordGiven);
 
 void main() {
 	trie_t testTrie = create_trie();
-	//trie_fill(testTrie);
-	char* testWord = "cooper";
-	char* testWord = "coopnet";
-	insert_trie(testTrie, testWord);
+	trie_fill(testTrie);
 	//complete(testTrie, testWord);
 	delete_trie(testTrie);
 }
@@ -224,7 +221,8 @@ void insert_trie(trie_t triePointer, char* word) {
 
 void delete_trie(trie_t triePointer) {
 	int i = 0;
-	for (i; i < sizeof(triePointer->next)/sizeof(triePointer->next[0]); i++) {
+	for (i; i < sizeof(triePointer->next)/(sizeof(triePointer->next[0])); i++) {
+		printf("%i\n", i);
 		if (triePointer->next[i] != NULL) {
 			delete_trie(triePointer->next[i]);
 		}
