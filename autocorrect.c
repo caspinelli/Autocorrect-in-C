@@ -35,13 +35,13 @@ struct linked {
 struct linked_node {
 	trie_t item;
 	struct linked_node* next;
-	int* correctMatix;
+	int* correctMatrix;
 	char iterativeBuild[];
 };
 
 linked_t linked_create(); // creates linked list -- returns pointer to a struct linked, allocates space for the head
 void linked_destroy(linked_t s); // destroys linkedlist
-void linked_append(linked_t s, trie_t item, char iterativeBuild[], int* optionalMatix); // adds node to end of linked
+void linked_append(linked_t s, trie_t item, char iterativeBuild[], int* optionalMatrix); // adds node to end of linked
 trie_t linked_pop(linked_t s); // returns first item in the linked and removes it
 struct linked_node* linked_peek(linked_t s);
 
@@ -102,7 +102,7 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 	char startNull[1] = "\0";
 	linked_append(bfsLinked, triePointer, startNull, startingMatrix);
 	while (linked_peek(bfsLinked) != NULL) {
-		int* fetchedMatrix = bfsLinked->head->correctMatix;
+		int* fetchedMatrix = bfsLinked->head->correctMatrix;
 		int length = strlen(bfsLinked->head->iterativeBuild);
 		char wordSaver[length + 1];
 		int r = 0;
@@ -182,7 +182,7 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 	char startNull[1] = "\0";
 	linked_append(bfsLinked, triePointer, startNull, startingMatrix);
 	while (linked_peek(bfsLinked) != NULL) {
-		int* fetchedMatrix = bfsLinked->head->correctMatix;
+		int* fetchedMatrix = bfsLinked->head->correctMatrix;
 		int length = strlen(bfsLinked->head->iterativeBuild);
 		char wordSaver[length + 1];
 		int r = 0;
@@ -373,10 +373,10 @@ void linked_destroy(linked_t s) {
 }
 
 
-void linked_append(linked_t s, trie_t item, char iterativeBuild[], int* optionalMatix) {
+void linked_append(linked_t s, trie_t item, char iterativeBuild[], int* optionalMatrix) {
 	struct linked_node* new_node = malloc(sizeof(struct linked_node) + (sizeof(char) * (strlen(iterativeBuild) + 1)));
 	new_node->item = item;
-	new_node->correctMatix = optionalMatix;
+	new_node->correctMatrix = optionalMatrix;
 	int h = 0;
 	for (h; h < strlen(iterativeBuild) + 1; h++) {
 		new_node->iterativeBuild[h] = iterativeBuild[h];
