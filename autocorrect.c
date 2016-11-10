@@ -60,7 +60,7 @@ void main() {
 	trie_t testTrie = create_trie();
 	trie_fill(testTrie);
 	char* testWord = "coop";
-	correctcomplete(testTrie, testWord, 3);
+	correct(testTrie, testWord, 3);
 	delete_trie(testTrie);
 }
 
@@ -268,7 +268,6 @@ trie_t linked_pop(linked_t s) {
 	if (s->head != NULL) {
 		trie_t item = s->head->item;
 		struct linked_node* toBeFreed = s->head;
-		free(toBeFreed->correctMatrix);
 		if (s->head->next != NULL){
 			struct linked_node* new_head = s->head->next;
 			s->head = new_head;
