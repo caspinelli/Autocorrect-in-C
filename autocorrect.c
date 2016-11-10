@@ -161,8 +161,8 @@ void correctcomplete(trie_t triePointer, char* wordGiven, int maxEdit) {
 
 			}
 		}
+		free(fetchedMatrix);
 	}
-	linked_destroy(bfsLinked);
 }
 
 ////////////////////
