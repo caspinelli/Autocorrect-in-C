@@ -162,6 +162,7 @@ void correctcomplete(trie_t triePointer, char* wordGiven, int maxEdit) {
 			}
 		}
 	}
+	linked_destroy(bfsLinked);
 }
 
 ////////////////////
