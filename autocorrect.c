@@ -63,6 +63,7 @@ void main() {
 	trie_t testTrie = create_trie();
 	//trie_fill(testTrie);
 	char* testWord = "cooper";
+	char* testWord = "coopnet";
 	insert_trie(testTrie, testWord);
 	//complete(testTrie, testWord);
 	delete_trie(testTrie);
