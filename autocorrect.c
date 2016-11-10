@@ -98,7 +98,6 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 	int* startingMatrix = malloc(sizeof(int) * givenLength);
 	for (int i = 0; i < givenLength; i++) {
 		startingMatrix[i] = i;
-		printf("%i\n", startingMatrix[i]);
 	}
 	char startNull[1] = "\0";
 	linked_append(bfsLinked, triePointer, startNull, startingMatrix);
@@ -137,6 +136,7 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 					// Make matrix
 					int* newMatrix = malloc(sizeof(int) * givenLength);
 					newMatrix[0] = strlen(buildingLetters);
+					printf("%i\n", newMatrix[0]);
 					int buildingLength = strlen(buildingLetters);
 					for (int b = 0; b < givenLength - 1; b++) {
 						int cost;
