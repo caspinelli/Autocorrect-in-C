@@ -101,6 +101,7 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 	}
 	char startNull[1] = "\0";
 	linked_append(bfsLinked, triePointer, startNull, startingMatrix);
+
 	while (linked_peek(bfsLinked) != NULL) {
 		int* fetchedMatrix = bfsLinked->head->correctMatrix;
 		int length = strlen(bfsLinked->head->iterativeBuild);
@@ -144,6 +145,7 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 						} else {
 							cost = 1;
 						}
+						printf("%i\n", fetchedMatrix[b] + cost);
 						newMatrix[b+1] = numberMin(fetchedMatrix[b+1] + 1, newMatrix[b] + 1, fetchedMatrix[b] + cost);
 						//printf("%i", newMatrix[b+1]);
 					}
