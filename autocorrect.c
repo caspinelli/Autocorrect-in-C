@@ -49,7 +49,7 @@ struct linked_node* linked_peek(linked_t s);
 /////////////////////////////
 
 int numberMin(int one, int two, int three);
-int arrayMin(int* arrayToCheck, int size)
+int arrayMin(int* arrayToCheck, int size);
 void correctcomplete(trie_t triePointer, char* wordGiven, int maxEdit);
 
 //////////
@@ -89,7 +89,7 @@ int arrayMin(int* arrayToCheck, int size) {
 }
 
 void correctcomplete(trie_t triePointer, char* wordGiven, int maxEdit) {
-	linked_t bfsLinked = linked_create(); // Creates linked
+	linked_t bfsLinked = linked_create();
 	int givenLength = strlen(wordGiven) + 1;
 	int* startingMatrix = malloc(sizeof(int) * givenLength);
 	for (int i = 0; i < givenLength; i++) {
@@ -117,7 +117,9 @@ void correctcomplete(trie_t triePointer, char* wordGiven, int maxEdit) {
 				}
 				buildingLetters[p] = nodeSaver->next[g]->character;
 				buildingLetters[p+1] = '\0';
+				//New Matrix Building
 				if (fetchedMatrix == NULL) {
+					// Check whether to print
 					if (new_node->frequency > 0) {
 						for (int x = 0; x < strlen(buildingLetters); x++) {
 							printf("%c", buildingLetters[x]);
@@ -126,6 +128,7 @@ void correctcomplete(trie_t triePointer, char* wordGiven, int maxEdit) {
 					}
 					linked_append(bfsLinked, new_node, buildingLetters, NULL);
 				} else {
+					// Make matrix
 					int* newMatrix = malloc(sizeof(int) * givenLength);
 					newMatrix[0] = strlen(buildingLetters);
 					int buildingLength = strlen(buildingLetters);
@@ -138,18 +141,21 @@ void correctcomplete(trie_t triePointer, char* wordGiven, int maxEdit) {
 						}
 						newMatrix[b+1] = numberMin(fetchedMatrix[b+1] + 1, newMatrix[b] + 1, fetchedMatrix[b] + cost);
 					}
+					// Check whether to print
 					if (newMatrix[givenLength - 1] <= maxEdit && new_node->frequency > 0) {
 						for (int x = 0; x < strlen(buildingLetters); x++) {
 							printf("%c", buildingLetters[x]);
 						}
 						printf("\n");
 					}
+					// Check whether to initiate complete
 					if (newMatrix[givenLength - 1] == 0) {
 						linked_append(bfsLinked, new_node, buildingLetters, NULL);
-					} else if (arrayMin(newMatrix, givenLength) <= maxEdit) {
+					} else if (arrayMin(newMatrix, givenLength) <= maxEdit) { // Check whether to add back the linked
 						linked_append(bfsLinked, new_node, buildingLetters, newMatrix);
 					}
 				}
+
 			}
 		}
 	}
@@ -226,7 +232,6 @@ linked_t linked_create() {
 	return newLinked; // return the pointer to the linked
 }
 
-
 void linked_destroy(linked_t s) {
 	struct linked_node* curr = s->head;
 	while(curr != NULL) {
@@ -263,7 +268,7 @@ trie_t linked_pop(linked_t s) {
 	if (s->head != NULL) {
 		trie_t item = s->head->item;
 		struct linked_node* toBeFreed = s->head;
-		free(s->head->correctMatrix);
+		free(toBeFreed->correctMatrix);
 		if (s->head->next != NULL){
 			struct linked_node* new_head = s->head->next;
 			s->head = new_head;
