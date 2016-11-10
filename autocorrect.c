@@ -150,9 +150,12 @@ void correctcomplete(trie_t triePointer, char* wordGiven, int maxEdit) {
 					}
 					// Check whether to initiate complete
 					if (newMatrix[givenLength - 1] == 0) {
+						free(newMatrix);
 						linked_append(bfsLinked, new_node, buildingLetters, NULL);
 					} else if (arrayMin(newMatrix, givenLength) <= maxEdit) { // Check whether to add back the linked
 						linked_append(bfsLinked, new_node, buildingLetters, newMatrix);
+					} else {
+						free(newMatrix);
 					}
 				}
 
@@ -261,7 +264,6 @@ void linked_append(linked_t s, trie_t item, char iterativeBuild[], int* optional
 		}
 		curr->next = new_node;
 	}
-
 }
 
 trie_t linked_pop(linked_t s) {
