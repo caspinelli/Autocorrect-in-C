@@ -73,9 +73,9 @@ void main() {
 ///////////////////////////
 
 int numberMin(int one, int two, int three) {
-	if (one >= two && one >= three) {
+	if (one <= two && one <= three) {
 		return one;
-	} else if (two >= one && two >= three) {
+	} else if (two <= one && two <= three) {
 		return two;
 	} else {
 		return three;
