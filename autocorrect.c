@@ -62,7 +62,7 @@ trie_t follow_word(trie_t triePointer, char* wordGiven);
 void main() {
 	trie_t testTrie = create_trie();
 	trie_fill(testTrie);
-	//complete(testTrie, testWord);
+	complete(testTrie, testWord);
 	delete_trie(testTrie);
 }
 
@@ -83,6 +83,16 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 	char startNull[1] = "\0";
 	linked_append(bfsLinked, triePointer, startNull, startingMatrix);
 	while (linked_peek(bfsLinked) != NULL) {
+		int* fetchedMatrix = bfsLinked->head->optionalMatix;
+		int length = strlen(bfsLinked->head->iterativeBuild);
+		char wordSaver[length + 1];
+		int r = 0;
+		for (r; r < length; r++) {
+			wordSaver[r] = bfsLinked->head->iterativeBuild[r];
+		}
+		wordSaver[r] = '\0';
+		trie_t nodeSaver = linked_pop(bfsLinked);
+
 
 	}
 
