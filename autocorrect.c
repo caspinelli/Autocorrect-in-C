@@ -295,7 +295,7 @@ trie_t linked_pop(linked_t s) {
 }
 
 
-trie_t linked_peek(linked_t s) {
+struct linked_node* linked_peek(linked_t s) {
 	if (s->head != NULL) {
 		return s->head;
 	} else {
