@@ -29,7 +29,6 @@ void delete_trie(trie_t triePointer);
 typedef struct linked* linked_t;
 
 struct linked {
-
 	struct linked_node* head;
 };
 
@@ -84,6 +83,9 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 	}
 	char startNull[1] = "\0";
 	linked_append(bfsLinked, triePointer, startNull, startingMatrix);
+	while (linked_peek(bfsLinked) != NULL) {
+
+	}
 
 
 }
@@ -295,7 +297,7 @@ trie_t linked_pop(linked_t s) {
 
 trie_t linked_peek(linked_t s) {
 	if (s->head != NULL) {
-		return s->head->item;
+		return s->head;
 	} else {
 		return NULL;
 	}
