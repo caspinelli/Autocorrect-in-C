@@ -162,9 +162,9 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 
 					// Check whether to initiate complete
 					if (newMatrix[givenLength - 1] == 0) {
-						linked_append(stack, new_node, buildingLetters, NULL);
+						linked_append(bfsLinked, new_node, buildingLetters, NULL);
 					} else if (arrayMin(newMatrix, givenLength) <= maxEdit) { // Check whether to add back the linked
-						linked_append(stack, new_node, buildingLetters, newMatrix);
+						linked_append(bfsLinked, new_node, buildingLetters, newMatrix);
 					}
 				}
 
