@@ -60,7 +60,7 @@ void main() {
 	trie_t testTrie = create_trie();
 	trie_fill(testTrie);
 	char* testWord = "coop";
-	correctcomplete(testTrie, testWord, 3);
+	correctcomplete(testTrie, testWord, 2);
 	delete_trie(testTrie);
 }
 
@@ -182,7 +182,7 @@ trie_t create_trie() {
 }
 
 void trie_fill(trie_t triePointer) {
-	FILE* pFile = fopen("wordsEn.txt", "r");
+	FILE* pFile = fopen("dictionary.txt", "r");
 	char line[256];
 	while(fgets(line, sizeof(line), pFile)){
   		char* wordRead = strtok(line, "\n");
