@@ -59,8 +59,8 @@ void correctcomplete(trie_t triePointer, char* wordGiven, int maxEdit);
 void main() {
 	trie_t testTrie = create_trie();
 	trie_fill(testTrie);
-	char* testWord = "coop";
-	correctcomplete(testTrie, testWord, 2);
+	//char* testWord = "coop";
+	//correctcomplete(testTrie, testWord, 2);
 	delete_trie(testTrie);
 }
 
