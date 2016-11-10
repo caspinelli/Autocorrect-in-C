@@ -62,8 +62,8 @@ trie_t follow_word(trie_t triePointer, char* wordGiven);
 void main() {
 	trie_t testTrie = create_trie();
 	trie_fill(testTrie);
-	char* testWord = "coopre";
-	correct(testTrie, testWord, 2);
+	char* testWord = "coop";
+	correct(testTrie, testWord, 3);
 	delete_trie(testTrie);
 }
 
