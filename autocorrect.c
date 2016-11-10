@@ -135,7 +135,7 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 							printf("%c", buildingLetters[x]);
 						}
 					}
-					linked_append(stack, new_node, buildingLetters, NULL);
+					linked_append(bfsLinked, new_node, buildingLetters, NULL);
 				} else {
 					// Make matrix
 					int* newMatrix = malloc(sizeof(int) * givenLength);
@@ -173,50 +173,6 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 	}
 }
 
-void complete(trie_t triePointer, char* wordGiven) {
-		linked_t stack = linked_create();
-		int i = 0;
-		char starterLetters[strlen(wordGiven) + 1];
-		int q = 0;
-		for (q; q < strlen(wordGiven); q++) {
-			starterLetters[q] = wordGiven[q];
-		}
-		starterLetters[q] = '\0';
-		linked_append(stack, starterNode, starterLetters, NULL);
-		while (linked_peek(stack) != NULL) {
-			int length = strlen(stack->head->iterativeBuild);
-			char wordSaver[length + 1];
-			int r = 0;
-			for (r; r < length; r++) {
-				wordSaver[r] = stack->head->iterativeBuild[r];
-			}
-			wordSaver[r] = '\0';
-			trie_t nodeSaver = linked_pop(stack); 
-			if (nodeSaver->frequency >= 1) {
-				int c = 0;
-				for (c; c < strlen(wordSaver); c++) {
-					printf("%c", wordSaver[c]);
-				}
-				printf("\n");
-			}
-			int g = 0;
-			for (g; g < sizeof(nodeSaver->next)/sizeof(nodeSaver->next[0]); g++) {
-				if (nodeSaver->next[g] != NULL) {
-					trie_t new_node = nodeSaver->next[g];
-					char buildingLetters[strlen(wordSaver) + 2];
-					int p = 0;
-					for (p; p < strlen(wordSaver); p++) {
-						buildingLetters[p] = wordSaver[p];
-					}
-					buildingLetters[p] = nodeSaver->next[g]->character;
-					buildingLetters[p+1] = '\0';
-					linked_append(stack, new_node, buildingLetters, NULL);
-				}
-			}
-		}
-		linked_destroy(stack);
-	}
-}
 
 
 /*
