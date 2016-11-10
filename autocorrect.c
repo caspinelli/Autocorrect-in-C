@@ -98,6 +98,7 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 	int* startingMatrix = malloc(sizeof(int) * givenLength);
 	for (int i = 0; i < givenLength; i++) {
 		startingMatrix[i] = i;
+		printf("%i\n", startingMatrix[i]);
 	}
 	char startNull[1] = "\0";
 	linked_append(bfsLinked, triePointer, startNull, startingMatrix);
@@ -145,9 +146,9 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 							cost = 1;
 						}
 						newMatrix[b+1] = numberMin(fetchedMatrix[b+1] + 1, newMatrix[b] + 1, fetchedMatrix[b] + cost);
-						printf("%i", newMatrix[b+1]);
+						//printf("%i", newMatrix[b+1]);
 					}
-					printf("\n");
+					//printf("\n");
 					// Check whether to print
 					if (newMatrix[givenLength - 1] <= maxEdit && new_node->frequency > 0) {
 						for (int x = 0; x < strlen(buildingLetters); x++) {
