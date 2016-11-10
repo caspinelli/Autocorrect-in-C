@@ -153,7 +153,7 @@ void correct(trie_t triePointer, char* wordGiven, int maxEdit) {
 					}
 
 					// Check whether to print
-					if (newMatrix[givenLength - 1] <= maxEdit) && new_node->frequency > 0) {
+					if (newMatrix[givenLength - 1] <= maxEdit && new_node->frequency > 0) {
 						int x = 0;
 						for (x; x < strlen(buildingLetters); x++) {
 							printf("%c", buildingLetters[x]);
